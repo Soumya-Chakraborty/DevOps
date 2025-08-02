@@ -27,8 +27,10 @@ jobs:
         pip install -r requirements.txt
         pip install -r requirements-dev.txt
 
-    - name: Install Docker Compose
-      run: pip install docker-compose
+    - name: Install Docker Compose CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose-plugin
 
     - name: Run tests
       run: pytest tests/
